@@ -1,0 +1,58 @@
+#!/bin/sh
+
+BINDIR=/usr/local/bin
+ETCDIR=/etc
+
+# バックアップシェルのインストール
+if [ ! -f ${BINDIR}/functions.sh ];then
+    echo cp ./functions.sh ${BINDIR}
+    cp ./functions.sh ${BINDIR}
+fi
+if [ ! -f ${BINDIR}/backup-common.sh ];then
+    echo cp ./backup-common.sh ${BINDIR}
+    cp ./backup-common.sh ${BINDIR}
+fi
+if [ ! -f ${BINDIR}/backup-file.sh ];then
+    echo cp ./backup-file.sh ${BINDIR}
+    cp ./backup-file.sh ${BINDIR}
+fi
+if [ ! -f ${BINDIR}/backup-dump.sh ];then
+    echo cp ./backup-dump.sh ${BINDIR}
+    cp ./backup-dump.sh ${BINDIR}
+fi
+if [ ! -f ${BINDIR}/backup-database.sh ];then
+    echo cp ./backup-database.sh ${BINDIR}
+    cp ./backup-database.sh ${BINDIR}
+fi
+
+# 設定ファイルのインストール
+if [ ! -d ${ETCDIR}/backup.d ];then
+    echo mkdir ${ETCDIR}/backup.d
+    mkdir ${ETCDIR}/backup.d
+fi
+if [ ! -f ${ETCDIR}/backup.d/backup-file.conf ];then
+    echo cp ./conf/backup-file.conf ${ETCDIR}/backup.d
+    cp ./conf/backup-file.conf ${ETCDIR}/backup.d
+fi
+if [ ! -f ${ETCDIR}/backup.d/backup-dump.conf ];then
+    echo cp ./conf/backup-dump.conf ${ETCDIR}/backup.d
+    cp ./conf/backup-dump.conf ${ETCDIR}/backup.d
+fi
+if [ ! -f ${ETCDIR}/backup.d/backup-database.conf ];then
+    echo cp ./conf/backup-database.conf ${ETCDIR}/backup.d
+    cp ./conf/backup-database.conf ${ETCDIR}/backup.d
+fi
+
+# スケジュールのインストール
+if [ ! -f ${ETCDIR}/cron.d/backup-file ];then
+    echo cp ./cron.d/backup-file ${ETCDIR}/cron.d
+    cp ./cron.d/backup-file ${ETCDIR}/cron.d
+fi
+if [ ! -f ${ETCDIR}/cron.d/backup-dump ];then
+    echo cp ./cron.d/backup-dump ${ETCDIR}/cron.d
+    cp ./cron.d/backup-dump ${ETCDIR}/cron.d
+fi
+if [ ! -f ${ETCDIR}/cron.d/backup-database ];then
+    echo cp ./cron.d/backup-database ${ETCDIR}/cron.d
+    cp ./cron.d/backup-database ${ETCDIR}/cron.d
+fi
